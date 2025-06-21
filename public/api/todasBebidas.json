@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "nome": "Salton Classic Tannat",
+    "slug": "salton-classicl-tannat",
+    "marca": "Salton",
+    "tipo": "Vinhos",
+    "descricao": "Aroma café e sabor encorpado",
+    "volume": 700,
+    "preco": 59.9,
+    "imagem": "002_salton_classic_tannat.jpg"
+  },
+  {
+    "id": "2",
+    "nome": "Concha y Toro Cabernet Sauvignon",
+    "slug": "concha-y-toro-cabernet-sauvignon",
+    "marca": "Concha y Toro",
+    "tipo": "Vinhos",
+    "descricao": "Aroma floral e sabor encorpado",
+    "volume": 1000,
+    "preco": 174.08,
+    "imagem": "003_concha_y_toro_cabernet_sauvign.jpg"
+  },
+  {
+    "id": "3",
+    "nome": "Vinho Aurora Reserva Merlot",
+    "slug": "vinho-aurora-reserva-merlot",
+    "marca": "Aurora",
+    "tipo": "Vinhos",
+    "descricao": "Aroma floral e sabor suave",
+    "volume": 750,
+    "preco": 244.36,
+    "imagem": "004_vinho_aurora_reserva_merlot.jpg"
+  },
+  {
+    "id": "4",
+    "nome": "Santa Helena Reservado Carménère",
+    "slug": "santa-helena-reservado-carmenere",
+    "marca": "Santa Helena",
+    "tipo": "Vinhos",
+    "descricao": "Aroma de frutas cítricas e sabor seco",
+    "volume": 500,
+    "preco": 78.02,
+    "imagem": "005_santa_helena_reservado_carmene.jpg"
+  }
+]
