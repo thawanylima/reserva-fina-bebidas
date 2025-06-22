@@ -1,11 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Vinhos= () =>(
+const Vinhos= ({ bebidas }) =>(
     <main className="principal">
         <h2>Categoria de Vinhos</h2>
-        <div className="card">
-            <p>Conteúdos da página Vinho</p>
-        </div>
+        {bebidas.filter(t => t.tipo === "Vinhos").map(bebida => (
+            <div className="card">
+                <div>
+                    <img src={"/imagens/bebidas/" + bebida.id + ".jpg"}/>
+                </div>
+                <Link>
+                    <div className="detalhes">
+                        <h3>{bebida.nome}</h3>
+                        <p>{bebida.descricao}</p>
+                        <p>Leia Mais &gt;</p>
+                    </div>
+                </Link>
+            </div>
+        ))}
     </main>
-)
+);
 export default Vinhos;
