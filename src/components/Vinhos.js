@@ -6,7 +6,7 @@ const Vinhos= ({ bebidas }) =>(
         <h2>Categoria de Vinhos</h2>
         {bebidas.filter(t => t.tipo === "Vinhos").map(bebida => (
             <div className="card">
-                <div>
+                <div className='thumb'>
                     <img src={"/imagens/bebidas/" + bebida.id + ".jpg"}/>
                 </div>
                 <Link>
