@@ -265,7 +265,7 @@ label[for="ftitulo"] {
   border-color: #146782;
 }
 
-/*Configurações formulário cadastro */
+/*Estilo formulário cadastro */
 .cadastro-container { 
   display: flex;
   flex-direction: column;
@@ -285,7 +285,7 @@ label[for="ftitulo"] {
 }
 .cadastro-form h2 {
   text-align: center;
-  color: #3e2723;
+  color: #994f42;
   margin-bottom: 1.5rem;
 }
 
@@ -321,7 +321,7 @@ label[for="ftitulo"] {
 .cadastro-form button {
   width: 100%;
   padding: 1rem;
-  background-color: #6d4c41;
+  background-color: #a84d3d;
   color: #fff;
   border: none;
   border-radius: 0.5rem;
@@ -331,7 +331,7 @@ label[for="ftitulo"] {
 }
 
 .cadastro-form button:hover {
-  background-color: #5d4037;
+  background-color: #aa311c;
 }
 
 /* Estilo da Tabela */

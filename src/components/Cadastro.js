@@ -40,7 +40,7 @@ class Cadastro extends Component {
                         <p>
                             <label htmlFor="fnome">Nome</label>
                             <input type="text" autoFocus 
-                                id="fnome" disabled={!inserirBebida} value={bebida.nome}
+                                id="fnome" value={bebida.nome}
                                 onChange={(e) => this.setState({ 
                                     bebida: {...bebida, nome: e.target.value}
                                 })}
