@@ -4,7 +4,6 @@ import {Link } from "react-router-dom";
 const TabelaBebidas = ({ bebidas, excluirBebida}) => {
     return(
         <main className="principal">
-            <h2>Lista de Bebidas</h2>
             {bebidas.length === 0 && <h3>Nenhuma bebida cadastrada!</h3>}
             {bebidas.length > 0 && (
                 <table className="tabela">
@@ -24,8 +23,8 @@ const TabelaBebidas = ({ bebidas, excluirBebida}) => {
                                 <td>{bebida.marca}</td>
                                 <td>{bebida.tipo}</td>
                                 <td>
-                                    <button className="bt lista-cadastrar-alterar">
-                                        <Link to={'/alterar/${bebida.id}'}>alterar</Link>
+                                    <button className="bt alterar">
+                                        <Link to={`/alterar/${bebida.slug}`}>Alterar</Link>
                                     </button>
                                 </td>
                                 <td>

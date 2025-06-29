@@ -31,10 +31,14 @@ class App extends Component{
       );
     }
   }
-  inserirBebida = (bebida) =>{
-    bebida.id = this.state.bebida.length + 1;
-    this.setState({ bebidas: [...this.state.bebidas, bebida]})
-  }
+  inserirBebida = (bebida) => {
+  // Gera novo ID baseado no último ID existente + 1
+  const novoId = this.state.bebidas.length > 0 
+    ? Math.max(...this.state.bebidas.map(b => b.id)) + 1 
+    : 1;
+  this.setState({ bebidas: [...this.state.bebidas, { ...bebida, id: novoId }]
+  });
+}
   alterarBebida = (bebida) =>{
     const index = this.state.bebidas.findIndex(b => b.id === bebida.id);
     const bebidas = this.state.bebidas.slice(0, index).concat(this.state.bebidas.slice(index + 1));
@@ -48,6 +52,7 @@ class App extends Component{
   }
 
   render(){
+    const { bebidas } = this.state;
     return (
       <Router>
         <Topo />

@@ -8,7 +8,7 @@ const MenuTabela = () => {
                 <u>
                     <li>
                         <button className="bt lista-cadastrar-alterar">
-                            <Link to="/tabela">Lista de Livros</Link>
+                            <Link to="/tabela">Lista de Bebidas</Link>
                         </button>
                     </li>
                     <li>

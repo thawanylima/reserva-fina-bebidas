@@ -8,62 +8,109 @@ class Cadastro extends Component {
             nome: this.props.bebida.nome,
             marca: this.props.bebida.marca,
             tipo: this.props.bebida.tipo,
-            descricao: this.props.bebida.descricao,
             volume: this.props.bebida.volume,
-            preco: this.props.bebida.preco
+            preco: this.props.bebida.preco,
+            descricao: this.props.bebida.descricao
         },
         redirecionar: false
     };
-    handleBebidaForm = () => {
-        if(this.props.inserirBebida){ this.props.inserirBebida(this.state.bebida);}
-        else { this.props.alterarBebida(this.state.bebida); }
+    handleBebidaForm = (e) => {
+         e.preventDefault();
+        if(this.props.inserirBebida){ 
+            this.props.inserirBebida(this.state.bebida);
+        }else { this.props.alterarBebida(this.state.bebida); }
         this.setState({redirecionar: true});
     };
 
     render(){
-        if(this.state.redirecionar === true){ return <Navigate to="/tabela" />; }
+        if (this.state.redirecionar) {
+            return <Navigate to="/tabela" />;
+        }
+
+        const { inserirBebida } = this.props;
+        const { bebida } = this.state;
+        const caracteresRestantes = 200 - bebida.descricao.length;
+
         return(
-            <main className="formulario">
-                <form onSubmit={this.handleBebidaForm}>
-                    <h2>{this.props.inserirBebida ? "Cadastro de Bebida" : "Alteração de Bebida"}</h2>
-                    
-                    <p><label htmlFor="fnome">Nome</label>
-                    <input type="text" autoFocus defaaultValue={this.props.nome} id="fnome" disabled={this.props.inserirBebida ? false:true}
-                    value={this.state.bebida.nome}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, nome: e.target.value}})}/></p>
+            <div className="cadastro-container">
+                <main className="cadastro-form">
+                    <form onSubmit={this.handleBebidaForm}>
+                        <h2>{inserirBebida ? "Cadastro de Bebida" : "Alteração de Bebida"}</h2>
+                        
+                        <p>
+                            <label htmlFor="fnome">Nome</label>
+                            <input type="text" autoFocus 
+                                id="fnome" disabled={!inserirBebida} value={bebida.nome}
+                                onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, nome: e.target.value}
+                                })}
+                                required/>
+                        </p>
 
-                    <p><label htmlFor="fmarca">Marca</label>
-                    <input type="text" defaaultValue={this.props.marca} id="fmarca"
-                    required value={this.state.bebida.marca}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, marca: e.target.value}})}/></p>
+                        <p>
+                            <label htmlFor="fmarca">Marca</label>
+                            <input type="text" id="fmarca" value={bebida.marca}
+                                onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, marca: e.target.value}
+                                })}required/>
+                        </p>
 
-                    <p><label htmlFor="ftipo">Tipo</label>
-                    <input type="text" defaaultValue={this.props.tipo} id="ftipo"
-                    required value={this.state.bebida.tipo}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, tipo: e.target.value}})}/></p>
+                        <p>
+                        <label htmlFor="ftipo">Tipo</label>
+                        <select 
+                            id="ftipo"
+                            value={bebida.tipo}
+                            onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, tipo: e.target.value}})}
+                                required>
+                            <option value="">Selecione um tipo</option>
+                            <option value="Vinho">Vinho</option>
+                            <option value="Whisky">Whisky</option>
+                            <option value="Espumante">Espumante</option>
+                            <option value="Destilado">Destilado</option>
+                        </select>
+                        </p>
+
+                        <p>
+                            <label htmlFor="fvolume">Volume (ml)</label>
+                            <input type="number" id="fvolume" value={bebida.volume}
+                                onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, volume: e.target.value}})}
+                                required
+                                min="0"/>
+                        </p>
 
 
-                    <p><label htmlFor="fvolume">Volume</label>
-                    <input type="text" defaaultValue={this.props.volume} id="fdescricao"
-                    required value={this.state.bebida.volume}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, volume: e.target.value}})}/></p>
+                        <p>
+                            <label htmlFor="fpreco">Preço (R$)</label>
+                            <input type="number" id="fpreco" value={bebida.preco}
+                                onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, preco: e.target.value}})}
+                                required
+                                min="0"
+                                step="0.01"/>
+                        </p>
 
+                        <p>
+                            <label htmlFor="fdescricao">Descrição</label>
+                            <textarea
+                                id="fdescricao"value={bebida.descricao}
+                                onChange={(e) => this.setState({ 
+                                    bebida: {...bebida, descricao: e.target.value}})}
+                                maxLength={200}
+                                rows={4}
+                                placeholder="Digite a descrição (máx. 200 caracteres)"
+                                required/>
+                            <small className="contador-caracteres">{caracteresRestantes} caracteres restantes</small>
+                        </p>
 
-                    <p><label htmlFor="fpreco">Preço</label>
-                    <input type="text" defaaultValue={this.props.volume} id="fvolume"
-                    required value={this.state.bebida.volume}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, volume: e.target.value}})}/></p>
-
-                    <p><label htmlFor="fdescricao">Descrição</label>
-                    <input type="text" defaaultValue={this.props.descricao} id="fdescricao"
-                    required value={this.state.bebida.descricao}
-                    onChange={ (e) => this.setState({ bebida: {...this.state.bebida, descricao: e.target.value}})}/></p>
-
-                    <p><button type="submit" className="bt cadastrar-alterar">
-                        {this.props.inserirBebida ? "Cadastrar" : "Alterar"}
-                    </button></p>
-                </form>
-            </main>
+                        <p>
+                            <button type="submit" className="bt cadastrar-alterar"> {inserirBebida ? "Cadastrar" : "Alterar"}
+                            </button>
+                        </p>
+                    </form>
+                </main>
+            </div>
         );
     }
 }
