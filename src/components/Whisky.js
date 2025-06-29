@@ -10,7 +10,7 @@ const Whisky = ({ bebidas }) =>(
                 <div className='thumb'>
                     <img src={"/imagens/bebidas/" + bebida.imagem + ".jpg"} />
                 </div>
-                <Link>
+                <Link to={`/bebida/${bebida.slug}`}>
                     <div className="detalhes">
                         <h3>{bebida.nome}</h3>
                         <p>{bebida.descricao}</p>

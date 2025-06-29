@@ -55,31 +55,11 @@ const BebidaIndividual = ({ bebidas }) => {
               <strong>Preço:</strong> R$ {bebida.preco}
             </div>
           )}
+            <div className="produto-detalhes">
+                <h3>Descrição</h3>
+                <p>{bebida.descricao}</p>
+            </div>
         </div>
-      </div>
-
-      <div className="produto-detalhes">
-        <h3>Descrição</h3>
-        <p>{bebida.descricao}</p>
-        
-        {bebida.detalhes && (
-          <div className="detalhes-extras">
-            <h4>Informações Adicionais</h4>
-            <p>{bebida.detalhes}</p>
-          </div>
-        )}
-        
-        {bebida.graduacao && (
-          <div className="graduacao">
-            <strong>Graduação Alcoólica:</strong> {bebida.graduacao}%
-          </div>
-        )}
-        
-        {bebida.origem && (
-          <div className="origem">
-            <strong>Origem:</strong> {bebida.origem}
-          </div>
-        )}
       </div>
 
       <div className="produto-acoes">

@@ -552,9 +552,7 @@ label[for="ftitulo"] {
 
 .produto-marca,
 .produto-tipo,
-.produto-preco,
-.graduacao,
-.origem {
+.produto-preco{
   margin-bottom: 1rem;
   font-size: 1.1rem;
   color: #666;
@@ -562,9 +560,7 @@ label[for="ftitulo"] {
 
 .produto-marca strong,
 .produto-tipo strong,
-.produto-preco strong,
-.graduacao strong,
-.origem strong {
+.produto-preco strong {
   color: #994f42;
   font-weight: 600;
 }
@@ -594,19 +590,6 @@ label[for="ftitulo"] {
   color: #555;
   font-size: 1rem;
   margin-bottom: 1rem;
-}
-
-.detalhes-extras {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #e0e0e0;
-}
-
-.detalhes-extras h4 {
-  color: #994f42;
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
 }
 
 .produto-acoes {
