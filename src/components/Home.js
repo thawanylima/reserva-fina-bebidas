@@ -7,7 +7,7 @@ const Home = ({ bebidas }) => (
     {bebidas.filter((bebida,index) => index < 2).map(bebida => (
       <div className="card">
         <div className='thumb'>
-          <img src={'/imagens/bebidas/' + bebida.id + ".jpg"}/>
+          <img src={'/imagens/bebidas/' + bebida.imagem + ".jpg"}/>
         </div>
         <Link to={'/bebida/${bebida.slug}'}>
           <div className='detalhes'>

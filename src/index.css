@@ -141,12 +141,6 @@ ul {
   margin-top: 4px;
 }
 
-@media screen and (max-width: 600px) {
-  .principal {
-    flex-direction: column;
-  }
-}
-
 .btn-comprar {
     background: #e4d7d7;
     color: rgb(12, 0, 0);
@@ -158,4 +152,148 @@ ul {
 }
 .btn-comprar:hover {
     background: #b9a8a8;
+}
+/* css para cadastrar formularios e tabelas
+*/
+#tudo {
+  background: #eaefef;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.menu ul {
+  padding: 12px 5px;
+}
+.menu li {
+  list-style: none;
+  display: inline;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.menu li:first-child {
+  padding: 0;
+}
+.tabela {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 20px auto;
+  background: #fff;
+}
+.tabela th {
+  padding: 5px 5px;
+  border-bottom: 1px solid #ccc;
+}
+.tabela td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #ccc;
+}
+thead > tr:last-child {
+  text-align: left;
+  color: #fff;
+}
+thead > tr:first-child {
+  background: #3b9737;
+}
+tbody > tr:nth-child(2n-1) {
+  background: #e4f0e2;
+}
+tfoot > tr {
+  text-align: center;
+  background: #3b9737;
+}
+label[for="ftitulo"] {
+  display: block;
+}
+#fisbn,
+#ftitulo,
+#fautor {
+  width: 100%;
+  padding: 4px 10px;
+  font-size: 15px;
+}
+.botao {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 16px;
+  padding: 0 15px;
+  line-height: 1.5;
+  border-radius: 6px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+              border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.excluir {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.excluir:hover {
+  color: #fff;
+  background-color: #b11d2c;
+  border-color: #b11d2c;
+}
+.lista-cadastrar-alterar {
+  color: #fff;
+  background-color: #2085a7;
+  border-color: #2085a7;
+}
+.lista-cadastrar-alterar:hover {
+  color: #fff;
+  background-color: #146782;
+  border-color: #146782;
+}
+.lista-cadastrar-alterar > a {
+  color: #fff;
+  text-decoration: none;
+}
+.cadastrar-alterar {
+  padding: 3px 20px;
+  color: #fff;
+  background-color: #2085a7;
+  border-color: #2085a7;
+}
+.cadastrar-alterar:hover {
+  color: #fff;
+  background-color: #146782;
+  border-color: #146782;
+}
+.formulario {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #eaefef;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.formulario h2 {
+  flex-basis: 100%;
+  font-size: 1em;
+  margin: 0;
+  padding: 6px 5px;
+  color: #fff;
+  background: #3b9737;
+}
+@media all and (max-width: 599px) {
+  #tudo {
+    padding: 0;
+  }
+  .tabela {
+    font-size: calc(8px + 1vw);
+  }
+  .tabela td {
+    padding: 2px;
+  }
+} 
+
+@media screen and (max-width: 600px) {
+  .principal {
+    flex-direction: column;
+  }
 }

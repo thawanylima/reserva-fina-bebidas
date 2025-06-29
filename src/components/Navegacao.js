@@ -10,6 +10,7 @@ export default function Navegacao() {
         <li><NavLink to='/whisky'>Whisky</NavLink></li>
         <li><NavLink to='/destilados'>Destilados</NavLink></li>
         <li><NavLink to='/catalogo'>Catálogo</NavLink></li>
+        <li><NavLink to="/tabela">Cadastro</NavLink></li>
     </ul>
   );
 };

@@ -10,6 +10,9 @@ import Catalogo from "./components/Catalogo";
 import NotFound from "./components/NotFound";
 import Rodape from "./components/Rodape";
 import BuscaBebida from "./components/BuscaBebida";
+import Tabela from "./components/Tabela";
+import BuscaBebidaAlteracao from "./components/BuscaBebidaAlteracao";
+import Cadastro from "./components/Cadastro";
 import axios from "axios";
 
 class App extends Component{
@@ -28,6 +31,21 @@ class App extends Component{
       );
     }
   }
+  inserirBebida = (bebida) =>{
+    bebida.id = this.state.bebida.length + 1;
+    this.setState({ bebidas: [...this.state.bebidas, bebida]})
+  }
+  alterarBebida = (bebida) =>{
+    const index = this.state.bebidas.findIndex(b => b.id === bebida.id);
+    const bebidas = this.state.bebidas.slice(0, index).concat(this.state.bebidas.slice(index + 1));
+    this.setState({bebidas: [...bebidas, bebida].sort((a,b) => a.id - b.id)});
+  }
+  excluirBebida = (bebida) => {
+    if(window.confirm("Deseja realmente excluir essa bebida?")){
+      const bebidas = this.state.bebidas.filter(b => b.id !== bebida.id);
+      this.setState({bebidas});
+    }
+  }
 
   render(){
     return (
@@ -40,6 +58,13 @@ class App extends Component{
           <Route path="/whisky" element={<Whisky bebidas={this.state.bebidas}/>} />
           <Route path="/destilados" element={<Destilados bebidas={this.state.bebidas}/>} />
           <Route path="/catalogo" element={<Catalogo bebidas={this.state.bebidas} />} />
+          
+          <Route path="/cadastrar" element={<Cadastro bebida={{ id: 0, nome: "", marca: "", tipo: "", volume: "", preco: "", descricao: ""}} inserirBebida={this.inserirBebida} />} />
+
+          <Route path="/alterar/:slugBebida" element={<BuscaBebidaAlteracao bebidas={this.state.bebidas} alterarBebida={this.alterarBebida} />} />
+
+          <Route path="/tabela" element={<Tabela bebidas={this.state.bebidas} excluirBebida={this.excluirBebida} />} />
+          
           <Route path="/bebida/:bebidaSlug" element={<BuscaBebida bebidas={this.state.bebidas} />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

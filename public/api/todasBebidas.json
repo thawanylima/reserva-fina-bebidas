@@ -8,7 +8,7 @@
     "descricao": "Aroma café e sabor encorpado",
     "volume": 700,
     "preco": 59.9,
-    "imagem": "002_salton_classic_tannat.jpg"
+    "imagem": "002_salton_classic_tannat"
   },
   {
     "id": "2",
@@ -19,7 +19,7 @@
     "descricao": "Aroma floral e sabor encorpado",
     "volume": 1000,
     "preco": 174.08,
-    "imagem": "003_concha_y_toro_cabernet_sauvign.jpg"
+    "imagem": "003_concha_y_toro_cabernet_sauvign"
   },
   {
     "id": "3",
@@ -30,7 +30,7 @@
     "descricao": "Aroma floral e sabor suave",
     "volume": 750,
     "preco": 244.36,
-    "imagem": "004_vinho_aurora_reserva_merlot.jpg"
+    "imagem": "004_vinho_aurora_reserva_merlot"
   },
   {
     "id": "4",
@@ -41,7 +41,7 @@
     "descricao": "Aroma de frutas cítricas e sabor seco",
     "volume": 500,
     "preco": 78.02,
-    "imagem": "005_santa_helena_reservado_carmene.jpg"
+    "imagem": "005_santa_helena_reservado_carmene"
   },
   {
     "id": "5",
@@ -63,7 +63,7 @@
     "descricao":   "aroma de ervas e sabor frutado",
     "volume": 750,
     "preco": 122.67,
-    "imagem": "029_chandon_passion.jpg"
+    "imagem": "029_chandon_passion"
   },
   {
     "id": "7",
@@ -73,6 +73,6 @@
     "descricao":"aroma de carvalho  e sabor encorpado",
     "volume": 1000,
     "preco": 237.89,
-    "imagem": "067_tanqueray_gin.jpg"
+    "imagem": "067_tanqueray_gin"
   }
 ]
