@@ -64,10 +64,10 @@ class Cadastro extends Component {
                                     bebida: {...bebida, tipo: e.target.value}})}
                                 required>
                             <option value="">Selecione um tipo</option>
-                            <option value="Vinho">Vinho</option>
-                            <option value="Whisky">Whisky</option>
-                            <option value="Espumante">Espumante</option>
-                            <option value="Destilado">Destilado</option>
+                            <option value="Vinhos">Vinho</option>
+                            <option value="Whiskys">Whisky</option>
+                            <option value="Espumantes">Espumante</option>
+                            <option value="Destilados">Destilado</option>
                         </select>
                         </p>
 

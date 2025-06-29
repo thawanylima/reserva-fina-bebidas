@@ -34,8 +34,10 @@ class App extends Component{
   inserirBebida = (bebida) => {
   // Gera novo ID baseado no último ID existente + 1
   const novoId = this.state.bebidas.length > 0 
-    ? Math.max(...this.state.bebidas.map(b => b.id)) + 1 
+    ? Math.max(...this.state.bebidas.map(b => b.id))+1 
     : 1;
+    // Gera slug baseado no nome
+  const slug = bebida.nome.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
   this.setState({ bebidas: [...this.state.bebidas, { ...bebida, id: novoId }]
   });
 }
