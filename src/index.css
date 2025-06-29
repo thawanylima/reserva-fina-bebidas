@@ -33,37 +33,58 @@ ul {
   position: absolute;
   top: -20000px;
 }
+/* Estiliza a imagem do logotipo */
+.logo img {
+  height: 120px;         /* Altura aumentada para melhor visualização */
+  max-width: 100%;      /* Evita ultrapassar o espaço da tela */
+  object-fit: contain;  /* Mantém proporção da imagem */
+}
+.topo { /* Container principal do cabeçalho */
+  background-color: #f3ecec;
+  padding: 10px 0;
+  text-align: center;
+}
 .topo h1 {
   width: 200px;
   height: 50px;
   margin: 0 auto;
 }
 .topo ul {
-  background: #d4af37;
-  border-bottom: 1px solid #cacaca;
+background-color: #d3ac2b; /* Dourado */
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  list-style: none;
+  border: none;
 }
 .topo li {
+  border: none;
   display: inline-block;
-  border-right: 1px solid #999;
 }
 .topo li a {
-  text-transform: uppercase;
+ color: black;
   font-weight: bold;
-  color: #000;
   text-decoration: none;
-  display: block;
-  padding: 8px 20px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
 }
 .topo li a:hover {
-  color: #666;
+  color: #781f1f; /* Vinho */
+  background-color: rgba(120, 31, 31, 0.1);
+  transform: translateY(-1px);
 }
-.topo li:first-child a {
-  border-left: 1px solid #999;
+.topo li a.active { /* Estado ativo (página atual) - NavLink adiciona automaticamente */
+  color: #781f1f; /* Vinho */
+  background-color: rgba(120, 31, 31, 0.15);
+  box-shadow: 0 2px 4px rgba(120, 31, 31, 0.2);
 }
-.principal a {
-  color: #1072f3;
-  text-decoration: none;
-}
+
 .thumb img {
   display: block;
   width: 80px;
@@ -74,21 +95,19 @@ ul {
   background: #efeaea;
   padding: 1px 0;
 }
-.topo {
-  margin-bottom: 4px;
+.principal a {
+  color: #1072f3;
+  text-decoration: none;
 }
 .principal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   background: #efeaea;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .principal h2 {
   flex-basis: 100%;
   font-size: 1em;
-  margin: 0;
   padding: 6px 5px;
   color: #fff;
   background: #740f08e5;
@@ -99,11 +118,24 @@ ul {
 .principal ol {
   margin-top: 8px;
 }
+.produtos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .card {
   display: flex;
   flex: 0 1 50%;
   padding: 8px 0 10px 10px;
   border-bottom: 1px solid #ccc;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 .card h2 {
   font-size: 16px;
@@ -119,19 +151,43 @@ ul {
   align-items: center;
   justify-content: center;
 }
+
+.leia-mais {
+  color: #1072f3;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px 0;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.leia-mais:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+
 .detalhes {
-  padding: 20px;
+  padding: 30px;
   flex-grow: 2;
   display: flex;
   flex-direction: column;
+  color: #212529;
 }
 .detalhes h3 {
   margin-bottom: 20px; /* Aumenta espaço abaixo do título */
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .detalhes p{
   margin-bottom: 1%; /* Aumenta espaço entre parágrafos */
   line-height: 1.6; /* Melhora legibilidade */
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #212529;
+  padding: 10px 0;
+  font-weight: 600;
 }
 .detalhes a{
   display: inline-block;
@@ -141,18 +197,6 @@ ul {
   margin-top: 4px;
 }
 
-.btn-comprar {
-    background: #e4d7d7;
-    color: rgb(12, 0, 0);
-    padding: 4px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-.btn-comprar:hover {
-    background: #b9a8a8;
-}
 /* css para cadastrar formularios e tabelas
 */
 #tudo {
@@ -206,13 +250,7 @@ tfoot > tr {
 label[for="ftitulo"] {
   display: block;
 }
-#fisbn,
-#ftitulo,
-#fautor {
-  width: 100%;
-  padding: 4px 10px;
-  font-size: 15px;
-}
+
 .botao {
   display: inline-block;
   font-weight: 400;
@@ -270,18 +308,21 @@ label[for="ftitulo"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
   background-color: #fdfaf6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .cadastro-form {
   background-color: #fdfaf6;
-  padding: 2rem 4rem;
-  margin-bottom: 2rem;
+  padding: 3rem 4rem;
+  margin: 2rem auto;
   border-radius: 1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   max-width: 600px;
-  width: 100%;
+  width: 90%; 
+  box-sizing: border-box;
 }
 .cadastro-form h2 {
   text-align: center;
@@ -338,6 +379,7 @@ label[for="ftitulo"] {
 .tabela {
   width: 100%;
   border-collapse: collapse;
+  justify-content: center;
   margin: 1.5rem 0;
   background-color: #fdfaf6;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -438,4 +480,155 @@ label[for="ftitulo"] {
   .principal {
     flex-direction: column;
   }
+}
+@media screen and (max-width: 767px) {
+  .produtos-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .thumb {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .detalhes {
+    padding: 10px 0;
+  }
+}
+/* Desktop - 3 colunas */
+@media (min-width: 1024px) {
+  .produtos-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CSS adicional para a página individual da bebida */
+
+.produto-individual-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fdfaf6;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.produto-header {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.produto-imagem {
+  flex-shrink: 0;
+}
+
+.produto-imagem img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-info h1 {
+  color: #994f42;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.produto-marca,
+.produto-tipo,
+.produto-preco,
+.graduacao,
+.origem {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.produto-marca strong,
+.produto-tipo strong,
+.produto-preco strong,
+.graduacao strong,
+.origem strong {
+  color: #994f42;
+  font-weight: 600;
+}
+
+.produto-preco {
+  font-size: 1.3rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.produto-detalhes {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.produto-detalhes h3 {
+  color: #994f42;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.produto-detalhes p {
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detalhes-extras {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.detalhes-extras h4 {
+  color: #994f42;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.produto-acoes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.produto-nao-encontrado {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.produto-nao-encontrado h2 {
+  color: #994f42;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.produto-nao-encontrado p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }

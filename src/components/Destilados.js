@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Destilados= ({ bebidas }) =>(
     <main className="principal">
         <h2>Categoria de Destilados</h2>
+        <div className="produtos-container">
         {bebidas.filter(t => t.tipo === "Destilados").map(bebida => (
             <div className="card">
                 <div className='thumb'>
@@ -18,6 +19,7 @@ const Destilados= ({ bebidas }) =>(
                 </Link>
             </div>
         ))}
+        </div>
     </main>
 )
 export default Destilados;

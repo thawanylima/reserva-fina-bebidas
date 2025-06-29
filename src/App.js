@@ -13,6 +13,7 @@ import BuscaBebida from "./components/BuscaBebida";
 import Tabela from "./components/Tabela";
 import BuscaBebidaAlteracao from "./components/BuscaBebidaAlteracao";
 import Cadastro from "./components/Cadastro";
+import BebidaIndividual from './components/BebidaIndividual';
 import axios from "axios";
 
 class App extends Component{
@@ -72,6 +73,8 @@ class App extends Component{
 
           <Route path="/tabela" element={<Tabela bebidas={this.state.bebidas} excluirBebida={this.excluirBebida} />} />
           
+          <Route path="/bebida/:slug" element={<BebidaIndividual bebidas={bebidas} />} />
+
           <Route path="/bebida/:bebidaSlug" element={<BuscaBebida bebidas={this.state.bebidas} />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
